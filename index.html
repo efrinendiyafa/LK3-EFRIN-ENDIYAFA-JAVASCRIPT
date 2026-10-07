@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efrin Endiyafa | Portfolio</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #08050d;
+            color: white;
+            line-height: 1.7;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: sticky;
+            top: 15px;
+            z-index: 100;
+            width: 90%;
+            max-width: 1100px;
+            margin: 15px auto;
+            padding: 15px 25px;
+            background: #0d0814;
+            border: 2px solid #32164d;
+            border-radius: 15px;
+            box-shadow: 5px 5px 0 #32164d;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: #a855f7;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #ddd5e5;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #a855f7;
+        }
+
+        /* GENERAL */
+        section {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.2;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hello {
+            display: inline-block;
+            background: #32164d;
+            color: #ffffff;
+            padding: 8px 15px;
+            border: 2px solid #a855f7;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 85px);
+            color: #a855f7;
+            text-transform: lowercase;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 18px;
+            color: #c9c1d0;
+        }
+
+        .buttons {
+            margin-top: 30px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 13px 22px;
+            border: 2px solid #a855f7;
+            border-radius: 10px;
+            font-weight: bold;
+            color: white;
+            background: #6d28a8;
+            box-shadow: 4px 4px 0 #32164d;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            transform: translate(3px, 3px);
+            box-shadow: 1px 1px 0 #32164d;
+            background: #8b3fc7;
+        }
+
+        .btn.secondary {
+            background: #0d0814;
+        }
+
+        /* FOTO PROFIL */
+        .hero-photo {
+            width: 280px;
+            height: 280px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            border: 4px solid #a855f7;
+            background: #32164d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            box-shadow: 10px 10px 0 #32164d;
+        }
+
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* TITLE */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 42px;
+            color: #a855f7;
+        }
+
+        .section-title p {
+            color: #aaa0b2;
+        }
+
+        /* ABOUT */
+        .about-card {
+            background: #0d0814;
+            border: 2px solid #32164d;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 7px 7px 0 #32164d;
+        }
+
+        .about-card h3 {
+            color: #a855f7;
+            margin-bottom: 15px;
+            font-size: 25px;
+        }
+
+        /* SKILLS */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: #160b20;
+            padding: 25px;
+            border: 2px solid #32164d;
+            border-radius: 18px;
+            box-shadow: 5px 5px 0 #32164d;
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-7px);
+            border-color: #a855f7;
+        }
+
+        .skill-icon {
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+            color: #c084fc;
+        }
+
+        .skill-card p {
+            color: #c9c1d0;
+        }
+
+        /* PORTFOLIO */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            background: #0d0814;
+            border: 2px solid #32164d;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 6px 6px 0 #32164d;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            border-color: #a855f7;
+        }
+
+        .project-image {
+            height: 160px;
+            background: #32164d;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 55px;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 8px;
+            color: #c084fc;
+        }
+
+        .project-content p {
+            color: #c9c1d0;
+        }
+
+        .project-content a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #a855f7;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #32164d;
+            border: 2px solid #a855f7;
+            border-radius: 25px;
+            box-shadow: 8px 8px 0 #1a0b25;
+            text-align: center;
+            padding: 55px 25px;
+        }
+
+        .contact h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            margin-bottom: 25px;
+            color: #ddd5e5;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 60px;
+            background: #050308;
+            color: #aaa0b2;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                justify-content: center;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .skills {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .skills {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-photo {
+                width: 210px;
+                height: 210px;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">Frynn.</div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <span class="hello">Hello! welcome</span>
+
+            <h1>Aku efrin</h1>
+
+            <p>
+                Efrin Endiyafa adalah seorang pelajar
+                kelas X PPLG 1 yang tertarik dengan dunia teknologi,
+                desain website, HTML, CSS, dan berbagai proyek kreatif digital.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#portfolio" class="btn">
+                    view portfolio →
+                </a>
+
+                <a href="#contact" class="btn secondary">
+                    contact me
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOTO PROFIL -->
+        <div class="hero-photo">
+            <img src="cat.jpg" alt="Foto Profil Efrin">
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About me</h2>
+            <p>get to know me better</p>
+        </div>
+
+        <div class="about-card">
+
+            <h3>Halo! aku efrin</h3>
+
+            <p>
+                Nama aku <b>Efrin Endiyafa</b>.
+                Aku adalah siswi kelas <b>X PPLG 1</b>
+                di <b>SMK Negeri 2 Magelang</b>.
+            </p>
+
+            <p>
+                Saat ini aku sedang belajar HTML dan CSS.
+                Aku juga memiliki hobi bermain game dan tertarik
+                untuk terus mengembangkan kemampuan di bidang teknologi.
+            </p>
+
+            <p>
+                Target aku dalam belajar PPLG adalah bisa terus berkembang
+                hingga mampu membuat aplikasi sendiri.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>Keahlian</h2>
+            <p>Hal yang sedang aku pelajari</p>
+        </div>
+
+        <div class="skills">
+
+            <div class="skill-card">
+                <div class="skill-icon">💻</div>
+                <h3>HTML</h3>
+                <p>
+                    Mempelajari struktur dasar website menggunakan HTML.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🎨</div>
+                <h3>CSS</h3>
+                <p>
+                    Mempelajari cara membuat website menjadi lebih
+                    menarik dan rapi.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🎮</div>
+                <h3>Bermain game</h3>
+                <p>
+                    Bermain game menjadi salah satu kegiatan
+                    yang aku sukai.
+                </p>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon">🚀</div>
+                <h3>Belajar PPLG</h3>
+                <p>
+                    Terus belajar teknologi untuk mencapai target
+                    membuat aplikasi.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+
+        <div class="section-title">
+            <h2>Portofolio</h2>
+            <p>Proyek dan latihan yang sedang aku kerjakan</p>
+        </div>
+
+        <div class="projects">
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    🌐
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Website Portfolio</h3>
+
+                    <p>
+                        Website pribadi yang dibuat menggunakan
+                        HTML dan CSS.
+                    </p>
+
+                    <a href="#">Lihat Detail →</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    📝
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Website Profil</h3>
+
+                    <p>
+                        Halaman profil sederhana sebagai latihan
+                        membuat website.
+                    </p>
+
+                    <a href="#">Lihat Detail →</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-image">
+                    💡
+                </div>
+
+                <div class="project-content">
+
+                    <h3>Eksperimen UI</h3>
+
+                    <p>
+                        Eksplorasi desain website dengan warna,
+                        card, animasi, dan efek hover.
+                    </p>
+
+                    <a href="#">Lihat Detail →</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+    <div class="contact">
+
+        <h2>Mari Berkolaborasi!</h2>
+
+        <p>
+            Terima kasih sudah mengunjungi portfolioku.
+            Jangan ragu untuk menghubungi aku.
+        </p>
+
+        <a href="#" class="btn">
+            contact me
+        </a>
+
+        <a href="https://www.instagram.com/0wpise.e?stkn=MWk1MXk4MjAzeDV6dw=="
+           class="btn instagram"
+           target="_blank">
+            Instagram
+        </a>
+
+    </div>
+
+</section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 • Dibuat oleh Efrin Endiyafa
+            menggunakan HTML & CSS
+        </p>
+    </footer>
+
+</body>
+
+</html>
